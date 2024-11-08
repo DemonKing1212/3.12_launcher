@@ -308,6 +308,61 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         lensButtonSpace.setVisibility(mLens && Utilities.isGSAEnabled(getContext()) ? VISIBLE : GONE);
     }
 
+    private void performMemoryBoost() {
+        if (mIsPerformingMemoryBoost) {
+            return;
+        }
+        
+        View clearAllButton = findViewById(R.id.action_clear_all);
+        if (clearAllButton == null) {
+            return;
+        }
+        
+        mIsPerformingMemoryBoost = true;
+        clearAllButton.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+        clearAllButton.animate()
+            .scaleX(0.95f)
+            .scaleY(0.95f)
+            .alpha(0.8f)
+            .setDuration(100)
+            .withEndAction(() -> {
+                UI_HELPER_EXECUTOR.execute(() -> {
+                    MemoryUtils.releaseMemory();
+                    
+                    clearAllButton.postDelayed(() -> {
+                        clearAllButton.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .alpha(1f)
+                            .setDuration(100)
+                            .withEndAction(() -> {
+                                mIsPerformingMemoryBoost = false;
+                            })
+                            .start();
+                        
+                        Toast.makeText(getContext(), 
+                            R.string.memory_boost_applied, 
+                            Toast.LENGTH_SHORT).show();
+                    }, 500);
+                });
+            })
+            .start();
+    }
+
+    public void setMemoryBoostInProgress(boolean inProgress) {
+        if (mIsPerformingMemoryBoost == inProgress) return;
+        mIsPerformingMemoryBoost = inProgress;
+        View clearAllButton = findViewById(R.id.action_clear_all);
+        if (clearAllButton != null) {
+            clearAllButton.animate()
+                .scaleX(inProgress ? 0.95f : 1f)
+                .scaleY(inProgress ? 0.95f : 1f)
+                .alpha(inProgress ? 0.8f : 1f)
+                .setDuration(100)
+                .start();
+        }
+    }
+
     /**
      * Set listener for callbacks on action button taps.
      *
