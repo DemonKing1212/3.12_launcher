@@ -563,4 +563,8 @@
     <!-- OEM-Style App launch animations -->
     <string name="pref_oem_style_launch_anim_title">OEM-Style App launch animations</string>
     <string name="pref_oem_style_launch_anim_summary">Replace default app launch animations with stock ROM-style transitions</string>
+
+        <string name="recents_overview_style_title">New overview style</string>
+    <string name="recents_overview_style_summary">Use redesigned action buttons in recents</string>
+
 </resources>
