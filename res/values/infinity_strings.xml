@@ -542,4 +542,8 @@
     <string name="rename_app_length_error">App name must be %1$d characters or less</string>
     <string name="rename_app_reset">Reset</string>
     <string name="rename_app_reset_message">Name reset to original</string>
+
+        <string name="recents_overview_style_title">New overview style</string>
+    <string name="recents_overview_style_summary">Use redesigned action buttons in recents</string>
+
 </resources>
