@@ -298,6 +298,8 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
         @JvmField val RECENTS_MEMINFO = backedUpItem("pref_recents_meminfo", false)
         @JvmField val RECENTS_STYLE = backedUpItem("pref_recents_style", "default")
         @JvmField val RECENTS_OPACITY = backedUpItem("pref_recents_opacity", 40)
+        @JvmField
+        val RECENTS_TASK_CORNER_RADIUS = backedUpItem("pref_recents_task_corner_radius", 26)
         @JvmField val RECENTS_NEW_OVERVIEW_STYLE = backedUpItem("pref_recents_new_overview_style", true)
         @JvmField val RECENTS_SCREENSHOT = backedUpItem("pref_recents_screenshot", true)
         @JvmField val RECENTS_SCROLL_VIBRATE = backedUpItem("pref_recents_scroll_vibrate", true)
