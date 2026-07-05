@@ -13,13 +13,17 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/overview_actions_height_legacy"
         android:layout_gravity="bottom|center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/action_screenshot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="6dp"
+android:paddingStart="12dp"
+android:paddingEnd="12dp"
+android:drawablePadding="4dp"            
+android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="10dp"
             android:drawableStart="@drawable/ic_screenshot"
             android:text="@string/recents_screenshot_title"
             android:visibility="gone" />
@@ -27,25 +31,31 @@
         <Button
             android:id="@+id/action_split"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="6dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="10dp"
             android:text="@string/action_split"
             android:visibility="gone" />
 
         <Button
             android:id="@+id/action_lens"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="6dp"
+            android:layout_height="48dp"
+android:paddingStart="15dp"
+android:paddingEnd="15dp"
+android:drawablePadding="4dp"       
+     android:layout_marginHorizontal="10dp"
             android:drawableStart="@drawable/ic_lens"
             android:text="@string/recents_lens_title"
             android:visibility="gone" />
 
         <Button
             android:id="@+id/action_clear_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="6dp"
+android:paddingStart="12dp"
+android:paddingEnd="12dp"
+android:drawablePadding="4dp"            
+android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="10dp"
             android:drawableStart="@drawable/ic_clear_all"
             android:text="@string/recents_clear_all_title"
             android:visibility="gone" />
