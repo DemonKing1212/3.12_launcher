@@ -52,6 +52,15 @@ public class ColorPreference extends Preference {
         this(context, null);
     }
 
+    public void setValue(int color) {
+        mColor = color;
+        updatePreview(mPreviewView, mColor);
+    }
+
+    public int getValue() {
+        return mColor;
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
@@ -216,6 +225,9 @@ public class ColorPreference extends Preference {
             .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                 mColor = currentColor[0];
                 persistInt(mColor);
+                if (getOnPreferenceChangeListener() != null) {
+                    getOnPreferenceChangeListener().onPreferenceChange(this, mColor);
+                }
                 updatePreview(mPreviewView, mColor);
             })
             .setNegativeButton(android.R.string.cancel, null)
