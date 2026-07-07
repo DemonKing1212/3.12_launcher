@@ -548,4 +548,6 @@
         <string name="recents_overview_style_title">New overview style</string>
     <string name="recents_overview_style_summary">Use redesigned action buttons in recents</string>
 
+    <!-- Atmosphere Effects -->
+    <string name="atmosphere_effects_title">Atmosphere Effects</string>
 </resources>
