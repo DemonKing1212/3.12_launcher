@@ -62,6 +62,7 @@ public class QuickSpaceView extends FrameLayout implements OnDataListener {
     public ImageView mWeatherIconSub;
     public TextView mWeatherTempSub;
     public TextView mEventTitle;
+    public TextView mDayOfWeek;
     public TextView mClock1;
     public TextView mClock2;
     public FrameLayout mClockContainer;
@@ -99,8 +100,14 @@ public class QuickSpaceView extends FrameLayout implements OnDataListener {
         loadDoubleLine(altUI);
     }
 
-    private final void loadDoubleLine(boolean useAlternativeQuickspaceUI) {
-        mEventTitle.setText(mController.getEventController().getTitle());
+private final void loadDoubleLine(boolean useAlternativeQuickspaceUI) {
+
+    if (mDayOfWeek != null) {
+        mDayOfWeek.setText(
+                QuickEventsController.getDayOfWeek(getContext()));
+    }
+
+    mEventTitle.setText(mController.getEventController().getTitle());
         if (useAlternativeQuickspaceUI) {
             String greetingsExt = mController.getEventController().getGreetings();
             if (greetingsExt != null && !greetingsExt.isEmpty()) {
@@ -253,6 +260,7 @@ public class QuickSpaceView extends FrameLayout implements OnDataListener {
 
     private final void loadViews() {
         mEventTitle = (TextView) findViewById(R.id.quick_event_title);
+        mDayOfWeek = (TextView) findViewById(R.id.day_of_week);
         mEventTitleSub = (TextView) findViewById(R.id.quick_event_title_sub);
         mEventTitleSubColored = (TextView) findViewById(R.id.quick_event_title_sub_colored);
         mNowPlayingIcon = (ImageView) findViewById(R.id.now_playing_icon_sub);
