@@ -356,4 +356,10 @@ public class QuickEventsController {
         }
         return mCachedPSAMap.get(resId);
     }
+public static String getDayOfWeek(Context context) {
+    DateFormat dayFormat = DateFormat.getInstanceForSkeleton(
+            "EEEE", Locale.getDefault());
+    dayFormat.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
+    return dayFormat.format(System.currentTimeMillis());
+}
 }
