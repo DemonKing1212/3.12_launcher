@@ -11,7 +11,6 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <LinearLayout
     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,9 +18,9 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:id="@+id/quickspace_content"
     android:layout_width="wrap_content"
-    android:layout_height="170dp"
+    android:layout_height="210dp"
     android:layout_gravity="start|top"
-    android:layout_marginTop="12dp"
+    android:layout_marginTop="20dp"
     android:orientation="vertical">
 
     <FrameLayout
@@ -32,13 +31,32 @@
         android:paddingTop="16dp"
         android:paddingStart="0dp">
 
+        <com.android.launcher3.quickspace.views.DoubleShadowTextView
+            android:id="@+id/day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/SlateForOnePlus-Medium"
+            android:textSize="28sp"
+            android:textColor="?attr/workspaceTextColor"
+            app:ambientShadowBlur="3dp"
+            app:ambientShadowColor="?attr/workspaceAmbientShadowColor"
+            app:keyShadowBlur="2dp"
+            app:keyShadowColor="?attr/workspaceKeyShadowColor"
+            app:keyShadowOffsetX="0.5dp"
+            style="@style/QuickSpaceText"/>
+
         <TextClock
             android:id="@+id/textClock1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical|center_horizontal|center|start"
-            android:fontFamily="google-sans-medium"
-            android:textSize="70sp"
+            android:layout_gravity="start|top"
+            android:layout_marginTop="42dp"
+            android:layout_marginStart="0dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/SlateForOnePlus-Bold"
+            android:textSize="77sp"
             android:textColor="?attr/workspaceTextColor"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -52,9 +70,12 @@
             android:id="@+id/textClock2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical|center_horizontal|center|start"
-            android:fontFamily="google-sans-medium"
-            android:textSize="70sp"
+            android:layout_gravity="start|top"
+            android:layout_marginTop="42dp"
+            android:layout_marginStart="0dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/SlateForOnePlus-Bold"
+            android:textSize="77sp"
             android:textColor="@android:color/holo_red_dark"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -81,68 +102,65 @@
             app:keyShadowColor="?attr/workspaceKeyShadowColor"
             app:keyShadowOffsetX="0.5dp"
             style="@style/QuickSpaceText"/>
+
     </FrameLayout>
 
-    <com.android.launcher3.quickspace.views.DoubleShadowTextView
-        android:id="@+id/quick_event_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical|center_horizontal|center|start"
-        android:paddingTop="0dp"
-        android:paddingStart="0dp"
-        android:fontFamily="google-sans"
-        android:textSize="16sp"
-        android:textColor="?attr/workspaceTextColor"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        app:ambientShadowBlur="3dp"
-        app:ambientShadowColor="?attr/workspaceAmbientShadowColor"
-        app:keyShadowBlur="2dp"
-        app:keyShadowColor="?attr/workspaceKeyShadowColor"
-        app:keyShadowOffsetX="0.5dp"
-        style="@style/QuickSpaceText"/>
-
     <LinearLayout
-        android:id="@+id/quick_event_weather_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical|center_horizontal|center|start"
+        android:layout_gravity="start"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        android:background="@drawable/bg_quickspace"
-        android:paddingTop="8dp"
-        android:paddingStart="0dp"
-        android:clickable="true">
-
-        <ImageView
-            android:id="@+id/quick_event_weather_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="left|center_vertical|center_horizontal|center|start"
-            android:scaleType="fitXY"/>
+        android:gravity="center_vertical">
 
         <com.android.launcher3.quickspace.views.DoubleShadowTextView
-            android:id="@+id/quick_event_weather_temp"
+            android:id="@+id/quick_event_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical|center_horizontal|center|start"
-            android:paddingStart="6dp"
-            android:drawablePadding="8dp"
-            android:fontFamily="google-sans"
-            android:textSize="@dimen/quickspace_subtitle_size"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/SlateForOnePlus-Medium"
+            android:textSize="16sp"
             android:textColor="?attr/workspaceTextColor"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:scrollHorizontally="true"
             android:singleLine="true"
-            android:letterSpacing="0.01"
             app:ambientShadowBlur="3dp"
             app:ambientShadowColor="?attr/workspaceAmbientShadowColor"
             app:keyShadowBlur="2dp"
             app:keyShadowColor="?attr/workspaceKeyShadowColor"
             app:keyShadowOffsetX="0.5dp"
-            style="@style/QuickSpaceSubText"/>
+            style="@style/QuickSpaceText"/>
+
+        <LinearLayout
+            android:id="@+id/quick_event_weather_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/quick_event_weather_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"/>
+
+            <com.android.launcher3.quickspace.views.DoubleShadowTextView
+                android:id="@+id/quick_event_weather_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/SlateForOnePlus-Medium"
+                android:textSize="@dimen/quickspace_subtitle_size"
+                android:textColor="?attr/workspaceTextColor"
+                android:singleLine="true"
+                app:ambientShadowBlur="3dp"
+                app:ambientShadowColor="?attr/workspaceAmbientShadowColor"
+                app:keyShadowBlur="2dp"
+                app:keyShadowColor="?attr/workspaceKeyShadowColor"
+                app:keyShadowOffsetX="0.5dp"
+                style="@style/QuickSpaceSubText"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -152,6 +170,7 @@
         android:layout_gravity="left|center_vertical|center_horizontal|center|start"
         android:orientation="horizontal"
         android:paddingTop="8dp"
+        android:layout_marginTop="5dp"
         android:paddingStart="0dp"
         android:layout_marginEnd="16dp">
 
@@ -169,7 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical|center_horizontal|center|start"
             android:drawablePadding="8dp"
-            android:fontFamily="google-sans"
+            android:fontFamily="@font/SlateForOnePlus-Medium"
             android:textSize="14sp"
             android:textColor="?attr/workspaceTextColor"
             android:focusable="true"
@@ -185,6 +204,7 @@
             app:keyShadowColor="?attr/workspaceKeyShadowColor"
             app:keyShadowOffsetX="0.5dp"
             style="@style/QuickSpaceSubText"/>
+
     </LinearLayout>
 
 </LinearLayout>
