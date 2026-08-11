@@ -18,6 +18,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:id="@+id/quickspace_content"
+    android:paddingTop="25dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
